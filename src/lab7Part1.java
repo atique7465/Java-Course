@@ -6,18 +6,18 @@ public class lab7Part1 {
         Scanner input = new Scanner(System.in);
         /* Reading the elements of a binary vector inform of a single string. */
         System.out.println("Enter the elements of your string vector (comma separated).");
-        String vec = input.next();
+        String Vec = input.next();
         /* Writing the sum of the binary vector elements in the console. */
-        System.out.println("Sum of the entered vector elements is :" + BVS(vec));
+        System.out.println("Sum of the entered vector elements is :" + BVS(Vec));
     }
 
-    private static String BVS(String vec) {
+    private static String BVS(String Vec) {
 
         /* Initiating the decimal summation. */
         int sum = 0;
 
         /* Calculating the decimal sum of binary elements by converting them into decimal. */
-        String[] elements = vec.split(",");
+        String[] elements = Vec.split(",");
         for (String element : elements) {
             sum += Integer.parseInt(element, 2);
         }
