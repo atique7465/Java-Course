@@ -25,7 +25,7 @@ public class lab07P2 {
             Date alarmDate = getAlarmDate();
 
             // check every second & wait till alarm date-time have passed
-            while (alarmDate.before(new Date())) {
+            while (alarmDate.after(new Date())) {
                 try {
                     Thread.sleep(1000);
                 } catch (Exception ex) {
@@ -42,8 +42,9 @@ public class lab07P2 {
             var stopBuzzerButton = myGroveBoard.getPin(6);
             stopBuzzerButton.setMode(Pin.Mode.INPUT);
 
+            int counter;
             // beeping for 30 times
-            for (int i = 1; i <= 30; i++) {
+            for (counter = 1; counter <= 30; counter++) {
 
                 // check whether the stop buzzer button pressed for < .5 second, if pressed stop beeping immediately.
                 if (stopBuzzerButton.getValue() == 1) {
@@ -51,17 +52,30 @@ public class lab07P2 {
                 }
 
                 myBuzzer.setValue(20); // set the buzzer beep on for 100 milliseconds
+                System.out.println("You have not waken up yet !");
                 try {
                     Thread.sleep(100);
                 } catch (Exception ex) {
                     System.out.println("Thread sleep error while buzzer beep is on." + ex);
                 }
+
+                // check whether the stop buzzer button pressed for < .5 second, if pressed stop beeping immediately.
+                if (stopBuzzerButton.getValue() == 1) {
+                    break;
+                }
+
                 myBuzzer.setValue(-1); // set the buzzer beep off for 100 milliseconds
                 try {
                     Thread.sleep(100);
                 } catch (Exception ex) {
                     System.out.println("Thread sleep error while buzzer beep is off." + ex);
                 }
+            }
+
+            if (counter < 30) {
+                System.out.println("You waked up at " + new Date());
+            } else {
+                System.out.println("You did not wake up on time by " + new Date());
             }
 
             // stop the board

@@ -1,3 +1,5 @@
+import something.RegularPyramid;
+
 public class RegularPyramidTest {
     public static void main(String[] args) {
         //set the parameters and instantiate an object of Regular Pyramid

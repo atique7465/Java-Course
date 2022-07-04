@@ -1,7 +1,8 @@
+package something;
+
 import static java.lang.Math.*;
 
 public class RegularPyramid {
-
     private final int numberOfSides;
     private final double sideLength;
     private final double height;
