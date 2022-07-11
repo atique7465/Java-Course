@@ -1,5 +1,3 @@
-package something;
-
 import static java.lang.Math.*;
 
 public class RegularPyramid {
