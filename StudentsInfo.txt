@@ -1,0 +1,4 @@
+Name: Cairo Jimmy Cook; ID: 214527365; Address: 202-233 Dufferin St, Toronto, ON M6H 4A9; GPA: 4.253
+Name: Tresha Wilkerson; GPA: 3.978; ID: 216178452; Address: 9989 Bayview Ave, Richmond Hill, ON L3T 2S6
+Name: Lucas Justice; ID: 217659721; GPA: 4.512; Address: 110-2564 Yonge St, Toronto, ON M4P 2J3
+Name: Darren Tessie Clement; GPA: 3.788; Address: 7896 Eglinton Ave W Etobicoke, ON M9B 3B1; ID: 215221743
