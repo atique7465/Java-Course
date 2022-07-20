@@ -1,12 +1,10 @@
-import java.util.Date;
+import java.util.Timer;
 
 public class Test {
     public static void main(String[] args) {
 
-        String name = "Name: Darren Tessie Clement";
-        String gpa = "GPA: 3.788";
+        var task = new Something();
 
-        System.out.println(name.substring(6));
-        System.out.println(gpa.substring(6));
+        new Timer().schedule(task, 5000, 1000);
     }
 }
