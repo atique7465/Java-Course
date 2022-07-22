@@ -1,3 +1,5 @@
+package lab10;
+
 import org.firmata4j.Pin;
 import org.firmata4j.ssd1306.MonochromeCanvas;
 import org.firmata4j.ssd1306.SSD1306;
@@ -15,7 +17,7 @@ public class potTask extends TimerTask {
     private final Pin potentiometerInputPin;
     private final Pin stopPin;
 
-    // Constructor for potTask
+    // Constructor for lab10.potTask
     public potTask(SSD1306 display, Pin potentiometerInputPin, Pin stopButton) {
         this.display = display;
         this.potentiometerInputPin = potentiometerInputPin;

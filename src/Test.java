@@ -1,3 +1,5 @@
+import lab9.Something;
+
 import java.util.Timer;
 
 public class Test {

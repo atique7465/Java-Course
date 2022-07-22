@@ -1,3 +1,5 @@
+package lab9;
+
 import org.firmata4j.I2CDevice;
 import org.firmata4j.IODevice;
 import org.firmata4j.firmata.FirmataDevice;

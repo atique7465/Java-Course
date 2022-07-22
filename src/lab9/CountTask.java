@@ -1,3 +1,5 @@
+package lab9;
+
 import org.firmata4j.ssd1306.SSD1306;
 
 import java.util.TimerTask;
@@ -13,7 +15,7 @@ public class CountTask extends TimerTask {
     private int repeatCount = 3;
     private final SSD1306 theOledObject;
 
-    // Constructor for CountTask
+    // Constructor for lab9.CountTask
     public CountTask(SSD1306 aDisplayObject) {
         this.theOledObject = aDisplayObject;
     }

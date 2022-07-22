@@ -1,3 +1,5 @@
+package lab10;
+
 import org.firmata4j.I2CDevice;
 import org.firmata4j.Pin;
 import org.firmata4j.firmata.FirmataDevice;

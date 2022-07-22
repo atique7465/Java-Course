@@ -1,3 +1,5 @@
+package lab7;
+
 import java.util.Scanner;
 
 public class lab7Part1 {

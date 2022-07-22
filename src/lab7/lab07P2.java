@@ -1,3 +1,5 @@
+package lab7;
+
 import org.firmata4j.firmata.*;
 import org.firmata4j.IODevice;
 import org.firmata4j.Pin;

@@ -1,3 +1,5 @@
+package exercise9;
+
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +17,7 @@ public class Exercise09Class {
             File text = new File("logfile.txt"); //Create File object by logfile.txt file location
             Scanner input = new Scanner(text); //create Scanner object using that text file object to read the lines
 
-            ParkingLot parkingCars = new ParkingLot(); //Create an ParkingLot object
+            ParkingLot parkingCars = new ParkingLot(); //Create an exercise9.ParkingLot object
             int countLines = 0; //initiate a line counter
             while (input.hasNextLine()) { //start the while loop with a condition that the file has another line
 
@@ -28,7 +30,7 @@ public class Exercise09Class {
                         line.substring(40, 42).trim(), line.substring(43, 45).trim(), line.substring(46, 48).trim());
 
                 //as " Nissan    Black    BDKK-863 2020  2 24  9  0  0" this line has car info between 1 and 28 position of the line
-                //we separated the values using subString() function with appropriate positions [Manufacturer Name, Car Color, Car Number Plate]
+                //we separated the values using subString() function with appropriate positions [Manufacturer Name, exercise9.Car Color, exercise9.Car Number Plate]
                 //called addCar() function of parkingCars object with the car info and entry time
                 parkingCars.addCar(dd, line.substring(1, 10).trim(), line.substring(10, 19).trim(), line.substring(20, 28).trim());
 
@@ -42,7 +44,7 @@ public class Exercise09Class {
             System.out.println(parkingCars.cars.get(1).color); //print the color of car 2 in console
 
         } catch (Exception e) { //This try may throw IOException for file read and ParseException from strToDate function. Both extends Exception. So we caught Exception in catch block to cover both oof them.
-            System.out.println("Something is wrong in reading the text file, Or in converting the string to date!"); //just print exception description in console.
+            System.out.println("lab9.Something is wrong in reading the text file, Or in converting the string to date!"); //just print exception description in console.
         }
     }
 
@@ -68,7 +70,7 @@ public class Exercise09Class {
 
 
 /*
-ParkingLot -> List< Car > carList -> get() -> dateIn
+exercise9.ParkingLot -> List< exercise9.Car > carList -> get() -> dateIn
                                                                            Cars -> dateIn
                                                                            Cars -> make
                                                                            Cars -> plate

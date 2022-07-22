@@ -1,3 +1,5 @@
+package lab9;
+
 import org.firmata4j.I2CDevice;
 import org.firmata4j.firmata.FirmataDevice;
 import org.firmata4j.ssd1306.SSD1306;

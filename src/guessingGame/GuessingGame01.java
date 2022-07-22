@@ -1,36 +1,37 @@
-import java.util.Random;
+package guessingGame;
 
-public class GuessingGame02 {
+import java.util.Random;
+import java.util.Scanner;
+
+public class GuessingGame01 {
     public static void main(String[] args) {
 
-        int upperBand = 100;
-        System.out.println("The answer is a number between 0 and " + upperBand);
+        Scanner scanner = new Scanner(System.in);
 
-        upperBand = upperBand + 1; //adding 1 with upper band to generate answer inclusive upper band.
+        //getting upper band input
+        System.out.print("Please enter the upper range of the game: ");
+        int upperBand = Integer.parseInt(scanner.nextLine()) + 1; //adding 1 with upper band to generate answer inclusive upper band.
 
         //generating game answer
         Random random = new Random();
         int gameAnswer = random.nextInt(upperBand);
 
-        //start guessing by computer
+        //start guessing
         int guessCount = 0; //store the guess count
         int guess = -1;     //initiate first guess as -1, as answer can't be < 0;
-        int lower = 0, upper = upperBand;
         while (guess != gameAnswer) {
-            guess = random.nextInt(upper - lower + 1) + lower;  //guessing randomly in current range
-            System.out.println("The guess# " + ++guessCount + " is " + guess + ".");
+            System.out.print("Enter a Guess: ");
+            guess = Integer.parseInt(scanner.nextLine());
 
             if (guess > gameAnswer) {
                 System.out.println("Guess is higher than the answer.");
-                upper = guess - 1;  //skipping numbers > (guess - 1) for next guess
             } else if (guess < gameAnswer) {
                 System.out.println("Guess is lower than the answer.");
-                lower = guess + 1;  //skipping numbers < (guess + 1) for next guess
             }
+
+            guessCount++;
         }
 
         System.out.println("Correct! Took " + guessCount + " guesses to find the answer.");
     }
 }
-
-// time complexity O(n)
