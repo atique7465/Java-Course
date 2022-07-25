@@ -1,7 +1,6 @@
 package lab11;
 
 import org.firmata4j.IODevice;
-import org.firmata4j.Pin;
 import org.firmata4j.firmata.FirmataDevice;
 
 import java.io.IOException;
