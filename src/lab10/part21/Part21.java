@@ -18,19 +18,18 @@ public class Part21 {
         IODevice myGroveBoard = new FirmataDevice(myPort);
         myGroveBoard.start();
         myGroveBoard.ensureInitializationIsDone();
+        System.out.println("Board started.");
 
-        // pin 4 for LEB
+        // pin 4 for LED
         var ledObject = myGroveBoard.getPin(Pins.D4);
         ledObject.setMode(Pin.Mode.OUTPUT);
-        ledObject.setValue(0); //turn of the LED
+        ledObject.setValue(0); //turn off the LED
 
         // pin 6 to get input from button
         var buttonObject = myGroveBoard.getPin(Pins.A6);
         buttonObject.setMode(Pin.Mode.INPUT);
 
         myGroveBoard.addEventListener(new ButtonListener(ledObject, buttonObject));
-
-        myGroveBoard.stop(); // finish with the board.
     }
 
 

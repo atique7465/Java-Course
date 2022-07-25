@@ -14,12 +14,13 @@ import java.io.IOException;
 
 public class ButtonListener implements IODeviceEventListener {
 
+    private final Pin ledPin;
     private final Pin potentiometerInputPin;
     private final Pin buttonPin;
-
     private final SSD1306 oledDisplay;
 
-    public ButtonListener(Pin potentiometerInputPin, Pin buttonPin, SSD1306 oledDisplay) {
+    public ButtonListener(Pin ledPin, Pin potentiometerInputPin, Pin buttonPin, SSD1306 oledDisplay) {
+        this.ledPin = ledPin;
         this.potentiometerInputPin = potentiometerInputPin;
         this.buttonPin = buttonPin;
         this.oledDisplay = oledDisplay;
@@ -28,13 +29,25 @@ public class ButtonListener implements IODeviceEventListener {
     @Override
     public void onPinChange(IOEvent ioEvent) {
         if (ioEvent.getPin().getIndex() == buttonPin.getIndex()) {
-            if (ioEvent.getPin().getValue() == 1) {
-                String potValue = String.valueOf(potentiometerInputPin.getValue());
-                oledDisplay.getCanvas().clear();
-                oledDisplay.getCanvas().drawString(0, 0, "Pot value is" + potValue);
-            } else {
-                oledDisplay.getCanvas().clear();
-                oledDisplay.getCanvas().drawString(0, 0, "");
+            try {
+                if (ledPin.getValue() == 0) {
+                    ledPin.setValue(1);
+
+                    long potentiometerValue = potentiometerInputPin.getValue();
+                    oledDisplay.getCanvas().clear();
+                    oledDisplay.getCanvas().drawString(0, 0, "Pot: " + potentiometerValue);
+                    oledDisplay.display();
+
+                    System.out.println("LED is on & Potentiometer value (" + potentiometerValue + ") is on the board's OLED");
+                } else {
+                    ledPin.setValue(0);
+
+                    oledDisplay.getCanvas().clear();
+                    oledDisplay.getCanvas().drawString(0, 0, "");
+                    oledDisplay.display();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

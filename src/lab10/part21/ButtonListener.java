@@ -27,6 +27,7 @@ public class ButtonListener implements IODeviceEventListener {
             try {
                 if (ledPin.getValue() == 0) {
                     ledPin.setValue(1);
+                    System.out.println("LED is ON.");
                 } else {
                     ledPin.setValue(0);
                 }
