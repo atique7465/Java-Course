@@ -3,7 +3,9 @@ package exercise9;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -43,7 +45,8 @@ public class Exercise09Class {
             System.out.println(parkingCars.cars.get(0).plate); //print the Number Plate info of car 1 in console
             System.out.println(parkingCars.cars.get(1).color); //print the color of car 2 in console
 
-        } catch (Exception e) { //This try may throw IOException for file read and ParseException from strToDate function. Both extends Exception. So we caught Exception in catch block to cover both oof them.
+        } catch (
+                Exception e) { //This try may throw IOException for file read and ParseException from strToDate function. Both extends Exception. So we caught Exception in catch block to cover both oof them.
             System.out.println("lab9.Something is wrong in reading the text file, Or in converting the string to date!"); //just print exception description in console.
         }
     }
@@ -68,11 +71,37 @@ public class Exercise09Class {
     }
 }
 
+//Car Class with five properties: dateIn, make, color, plate
+class Car {
+    public Date dateIn;
+    public String make;
+    public String color;
+    public String plate;
 
-/*
-exercise9.ParkingLot -> List< exercise9.Car > carList -> get() -> dateIn
-                                                                           Cars -> dateIn
-                                                                           Cars -> make
-                                                                           Cars -> plate
-                                                                           Cars -> color
- */
+    //Constructor of exercise9.Car class. Have five arguments: Date dateIn, String make, String color, String plate
+    public Car(Date dateIn, String make, String color, String plate) {
+        this.dateIn = dateIn;
+        this.make = make;
+        this.color = color;
+        this.plate = plate;
+    }
+}
+
+//exercise9.ParkingLot class with a property cars which is a List of car
+class ParkingLot {
+
+    public List<Car> cars = new ArrayList<>(); //List of car
+
+
+    /**
+     * @param dateIn parking entry time of a car
+     * @param make   car manufacturer name
+     * @param color  car color
+     * @param plate  car number plate info
+     *               <p>
+     *               Instantiate a exercise9.Car object by calling the exercise9.Car class constructor with the arguments, and add to the cars list
+     */
+    public void addCar(Date dateIn, String make, String color, String plate) {
+        cars.add(new Car(dateIn, make, color, plate));
+    }
+}
