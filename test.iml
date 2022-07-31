@@ -11,5 +11,6 @@
     <orderEntry type="library" name="io.github.java.native.jssc" level="project" />
     <orderEntry type="library" name="slf4j.jcl" level="project" />
     <orderEntry type="library" name="opencsv" level="project" />
+    <orderEntry type="library" name="explodingart.jmusic" level="project" />
   </component>
 </module>
